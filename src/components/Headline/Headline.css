@@ -1,0 +1,30 @@
+.section{
+    width: 580px;
+    /* height: 500px; */
+    border-bottom: 1px solid goldenrod;
+    padding: 10px;
+}
+.section img{
+    height: 350px;
+    width: 550px;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 5px;
+}
+.section p{
+    font-size: small;
+  line-height:0.2px ;
+  gap: 6px;
+  
+}
+.section h3{
+    line-height:0px ;
+}
+.section-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.block{
+    display: block;
+    margin-right:300px ;
+}
