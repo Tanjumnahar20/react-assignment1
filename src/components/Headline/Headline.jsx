@@ -8,9 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 const Headline = (props) => {
-    const{picture,name,time,disclaimer,min} =props.headline;
+    const{picture,name,time,disclaimer} =props.headline;
 
     const handlerToShowTime =props.handlerToShowTime;
+    const handlerToCountItem = props.handlerToCountItem;
     
     return (
         <div className='section'>
@@ -22,7 +23,8 @@ const Headline = (props) => {
         <p>{time}</p>
         </div>
         <div>
-        <p>05min read <span> <FontAwesomeIcon icon={faBookmark} /></span>
+        <p>05min read <span  onClick={()=>handlerToCountItem(props.headline)}   
+> <FontAwesomeIcon icon={faBookmark} /></span>
          </p>
 
         </div>

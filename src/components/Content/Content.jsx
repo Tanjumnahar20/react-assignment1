@@ -12,13 +12,22 @@ const Content = () => {
         .then(res=>res.json())
         .then(data=>setHeadline(data))
     },[])
-
+// time function
     let [counter,setCounter] =useState(0);
     const handlerToShowTime=(headline)=>{
         console.log(headline)
         setCounter(counter+ JSON.parse(headline.min))
       }
-
+  
+    //   saved content function
+    let [number,setNumber]=useState([])
+    let [saveItem,setSaveItem] =useState([])
+    const handlerToCountItem=(headline)=>{
+         let newNumber =[...number,headline];
+         setNumber(newNumber)
+         
+         setSaveItem(<li>{saveItem+headline.disclaimer}</li>)
+    }
 
     return (
         <div className='container'>
@@ -27,12 +36,17 @@ const Content = () => {
                 headlines.map(headline=><Headline
                 headline={headline}
                 key ={headline.id}
+                handlerToCountItem ={handlerToCountItem}
+
                 handlerToShowTime ={handlerToShowTime}
                 ></Headline>)
             }
            </div>
            <div className='saved-container'>
-            <Bookmark counter ={counter}></Bookmark>
+            <Bookmark counter ={counter}
+            number={number}
+            saveItem={saveItem}
+            ></Bookmark>
            </div>
         </div>
     );
